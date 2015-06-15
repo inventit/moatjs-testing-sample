@@ -1,13 +1,13 @@
 {
   "name": "moatjs-seed",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "maintainers": [{
-    "name": "Project Egypt",
-    "email": "egypt@yourinventit.com "
+    "name": "yourname",
+    "email": "yourname@your-company.com "
   }],
   "bugs": {
-    "mail": "egypt@yourinventit.com"
+    "mail": "yourname@your-company.com"
   },
   "dependencies": {
     "moat": ">=1.0.0 <2.0.0"
