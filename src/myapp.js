@@ -6,5 +6,15 @@
 var moat = require('moat');
 var context = moat.init();
 var session = context.session;
+var clientRequest = context.clientRequest;
 
-session.log('myapp', 'Start myapp');
+session.fetchUrlSync(
+  'http://localhost',
+  {
+    method: 'POST',
+    contentType: 'application/json',
+    payload: JSON.stringify(clientRequest.objects)
+  },
+  function(resp) {
+    return resp;
+  });

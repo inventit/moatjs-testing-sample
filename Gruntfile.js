@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-  
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
         reporterOptions: {
           output: 'docs'
         }
-      },
+      }
     },
     jsdoc: {
       dist: {
@@ -58,4 +58,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', ['jshint', 'nodeunit', 'uglify', 'copy:pack']);
   grunt.registerTask('default', ['build', 'jsdoc']);
+
 };
