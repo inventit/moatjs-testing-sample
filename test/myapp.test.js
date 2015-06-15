@@ -14,24 +14,35 @@ module.exports = nodeUnit.testCase({
     callback();
   },
 
-  'Write your unit test' : function(assert) {
+  'Your first unit test' : function(assert) {
     var context = moat.init(sinon);
     var session = context.session;
 
     // Setup the dummy data
-    var objs = [{ firstname: 'John', lastname: 'Doe' }];
+    var objs = [{firstname: 'John', lastname: 'Doe'}];
     context.setObjects(objs);
 
+    session.fetchUrlSync.returns({responseCode: 200});
+
+    var url = 'http://localhost',
+        req = {
+          method: 'POST',
+          contentType: 'application/json',
+          payload: JSON.stringify(objs)
+        };
+
     // Run the test target script
-    require(script);
+    assert.doesNotThrow(function() {
+      require(script);
+    });
 
     // Check assertions
-    assert.equal(true, session.fetchUrlSync.calledOnce);
-    assert.equal(true, session.fetchUrlSync.withArgs('http://localhost', {
-      method: 'POST',
-      contentType: 'application/json',
-      payload: JSON.stringify(objs)
-    }).calledOnce);
+    assert.ok(session.fetchUrlSync.calledOnce);
+
+    assert.ok(session.fetchUrlSync.withArgs(url, req).calledOnce);
+
+    var result = session.fetchUrlSync(url, req);
+    assert.deepEqual({responseCode: 200}, result);
 
     assert.done();
   }

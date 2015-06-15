@@ -20,8 +20,9 @@ var resp = session.fetchUrlSync(
     return resp;
   });
 
-// if (parseInt(resp.responseCode / 100) === 2) {
-//   session.log('Succeess!');
-// } else {
-//   session.log('Failed!');
-// }
+if (parseInt(resp.responseCode / 100) === 2) {
+  session.log('Succeess!');
+} else {
+  session.log('Failed!');
+  throw 'Failed to post data: ' + resp.responseCode;
+}
