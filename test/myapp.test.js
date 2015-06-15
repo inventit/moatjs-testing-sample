@@ -1,7 +1,7 @@
-var nodeUnit = require('nodeunit');
-var sinon = require('sinon');
-var script = require('path').resolve('./src/myapp.js');
-var moat = require('moat');
+var nodeUnit = require('nodeunit'),
+    sinon = require('sinon'),
+    script = require('path').resolve('./src/myapp.js'),
+    moat = require('moat');
 
 module.exports = nodeUnit.testCase({
 
@@ -14,31 +14,33 @@ module.exports = nodeUnit.testCase({
     callback();
   },
 
-  'Write your unit test' : function(assert) {
-    var context = moat.init(sinon);
-    var url = 'http://localhost';
-    // Post data
-    var objects = [{
-      firstname: 'John',
-      lastname: 'Doe'
-    }];
-    var args = {};
-    context.setDevice('uid', 'deviceId', 'name', 'status', 'clientVersion', 0);
-    context.setDmjob('uid', 'deviceId', 'name', 'status', 'jobServiceId',
-                     'sessionId', args, 'createdAt', 'activatedAt', 'startedAt',
-                     'expiredAt', 'http', url);
-    context.setObjects(objects);
-    var session = context.session;
+  'Your first unit test' : function(assert) {
+    var context = moat.init(sinon),
+        session = context.session;
 
-    // Run the script
-    require(script);
+    // Setup the dummy data
+    var objs = [{firstname: 'John', lastname: 'Doe'}];
+    context.setObjects(objs);
 
-    assert.equal(true, session.fetchUrlSync.calledOnce);
-    assert.equal(true, session.fetchUrlSync.withArgs(url, {
-      method: 'POST',
-      contentType: 'application/json',
-      payload: JSON.stringify(objects)
-    }).calledOnce);
+    session.fetchUrlSync.returns({responseCode: 200});
+
+    var url = 'http://localhost',
+        req = {
+          method: 'POST',
+          contentType: 'application/json',
+          payload: JSON.stringify(objs)
+        };
+
+    // Run the test target script
+    assert.doesNotThrow(function() {
+      require(script);
+    });
+
+    // Check assertions
+    assert.ok(session.fetchUrlSync.calledOnce);
+    assert.ok(session.fetchUrlSync.withArgs(url, req).calledOnce);
+    assert.deepEqual({responseCode: 200}, session.fetchUrlSync(url, req));
+
     assert.done();
   }
 

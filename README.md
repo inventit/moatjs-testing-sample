@@ -1,11 +1,11 @@
-Your MOAT js App
+MOAT js Seed Project
 ========
 
 ## Scripts
 
 This package contains the following scripts:
 
- 1. `your-moatjs-script.js` 
+- `myapp.js`: Sample MOAT js script.
 
 *.test.js files under `test` directories are unit testing scripts.
 
@@ -35,5 +35,4 @@ Describe about the model defined in `package.json`.
 
 ### x.y.x Feb 16, 2015
 
-1. Describe some change history
-
+- Describe about your change history
