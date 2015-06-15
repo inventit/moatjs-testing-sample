@@ -1,7 +1,7 @@
-var nodeUnit = require('nodeunit');
-var sinon = require('sinon');
-var script = require('path').resolve('./src/myapp.js');
-var moat = require('moat');
+var nodeUnit = require('nodeunit'),
+    sinon = require('sinon'),
+    script = require('path').resolve('./src/myapp.js'),
+    moat = require('moat');
 
 module.exports = nodeUnit.testCase({
 
@@ -15,8 +15,8 @@ module.exports = nodeUnit.testCase({
   },
 
   'Your first unit test' : function(assert) {
-    var context = moat.init(sinon);
-    var session = context.session;
+    var context = moat.init(sinon),
+        session = context.session;
 
     // Setup the dummy data
     var objs = [{firstname: 'John', lastname: 'Doe'}];
@@ -38,11 +38,8 @@ module.exports = nodeUnit.testCase({
 
     // Check assertions
     assert.ok(session.fetchUrlSync.calledOnce);
-
     assert.ok(session.fetchUrlSync.withArgs(url, req).calledOnce);
-
-    var result = session.fetchUrlSync(url, req);
-    assert.deepEqual({responseCode: 200}, result);
+    assert.deepEqual({responseCode: 200}, session.fetchUrlSync(url, req));
 
     assert.done();
   }

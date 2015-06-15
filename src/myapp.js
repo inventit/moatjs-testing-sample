@@ -1,14 +1,14 @@
 /*
  * JobServiceID:
- * urn:moat:${APP_ID}:${PACKAGE_ID}:${OPERATION}:${VERSION}
- * Description: Note about your app
+ * urn:moat:${APP_ID}:moatjs-seed:${OPERATION}:${VERSION}
+ * Description: Describe about your app.
  */
-var moat = require('moat');
-var context = moat.init();
-var session = context.session;
-var clientRequest = context.clientRequest;
+var moat = require('moat'),
+    context = moat.init(),
+    session = context.session,
+    clientRequest = context.clientRequest;
 
-var resp = session.fetchUrlSync(
+session.fetchUrlSync(
   'http://localhost',
   {
     method: 'POST',
@@ -16,13 +16,9 @@ var resp = session.fetchUrlSync(
     payload: JSON.stringify(clientRequest.objects)
   },
   function(resp) {
-    session.log(resp);
-    return resp;
+    if (parseInt(resp.responseCode / 100) === 2) {
+      session.log('Success!');
+    } else {
+      throw 'Failed to post data: ' + resp.responseCode;
+    }
   });
-
-if (parseInt(resp.responseCode / 100) === 2) {
-  session.log('Succeess!');
-} else {
-  session.log('Failed!');
-  throw 'Failed to post data: ' + resp.responseCode;
-}
