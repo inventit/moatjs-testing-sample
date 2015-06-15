@@ -16,29 +16,23 @@ module.exports = nodeUnit.testCase({
 
   'Write your unit test' : function(assert) {
     var context = moat.init(sinon);
-    var url = 'http://localhost';
-    // Post data
-    var objects = [{
-      firstname: 'John',
-      lastname: 'Doe'
-    }];
-    var args = {};
-    context.setDevice('uid', 'deviceId', 'name', 'status', 'clientVersion', 0);
-    context.setDmjob('uid', 'deviceId', 'name', 'status', 'jobServiceId',
-                     'sessionId', args, 'createdAt', 'activatedAt', 'startedAt',
-                     'expiredAt', 'http', url);
-    context.setObjects(objects);
     var session = context.session;
 
-    // Run the script
+    // Setup the dummy data
+    var objs = [{ firstname: 'John', lastname: 'Doe' }];
+    context.setObjects(objs);
+
+    // Run the test target script
     require(script);
 
+    // Check assertions
     assert.equal(true, session.fetchUrlSync.calledOnce);
-    assert.equal(true, session.fetchUrlSync.withArgs(url, {
+    assert.equal(true, session.fetchUrlSync.withArgs('http://localhost', {
       method: 'POST',
       contentType: 'application/json',
-      payload: JSON.stringify(objects)
+      payload: JSON.stringify(objs)
     }).calledOnce);
+
     assert.done();
   }
 
