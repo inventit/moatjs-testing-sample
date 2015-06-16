@@ -7,7 +7,7 @@
     "email": "yourname@your-company.com "
   }],
   "bugs": {
-    "mail": "yourname@your-company.com"
+    "email": "yourname@your-company.com"
   },
   "dependencies": {
     "moat": ">=1.0.0 <2.0.0"
