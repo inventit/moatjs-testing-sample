@@ -34,4 +34,4 @@ Describe about the model defined in `package.json`.
 
 ### 1.0.0 Jun 24, 2015
 
-- Initial Release
+- Initial public release
