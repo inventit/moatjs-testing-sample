@@ -24,8 +24,7 @@ Describe about the model defined in `package.json`.
 
 ### Packaging
 
-    cd build
-    npm pack
+    grunt pack
 
 ### Cleaning
 
@@ -33,6 +32,6 @@ Describe about the model defined in `package.json`.
 
 ## Change History
 
-### x.y.x Feb 16, 2015
+### 1.0.0 Jun 24, 2015
 
-- Describe about your change history
+- Initial public release
