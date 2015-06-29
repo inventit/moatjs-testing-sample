@@ -1,12 +1,12 @@
 {
-  "name": "moatjs-seed",
-  "version": "1.0.0",
-  "description": "A seed project for your MOAT js app",
+  "name": "moatjs-testing-sample",
+  "version": "0.0.1",
+  "description": "MOAT js testing samples",
   "maintainers": [
-    "YOUR-COMPANY <yourname@yourcompany.com>"
+    "thina <thina@yourinventit.com>"
   ],
   "bugs": {
-    "mail": "yourname@yourcompany.com"
+    "mail": "thina@yourinventit.com"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
     "grunt-contrib-uglify": "~0.6.0",
     "grunt-jsdoc": "~0.5.7",
     "grunt-mocha-chai-sinon": "~0.0.8",
-    "moat": "https://github.com/inventit/moatjs-stub.git",
+    "moat": "https://github.com/inventit/moatjs-stub.git#develop",
     "nodeunit": "*",
     "sinon": ">= 1.5.2"
   },
@@ -30,15 +30,12 @@
     "moat-runtime": ">=1.0.0 <2.0.0"
   },
   "models": {
-    "MyModel": {
+    "SensingData": {
       "array": false,
       "attributes": {
-        "firstName": {
-          "type": "string"
-        },
-        "LastName": {
-          "type": "string"
-        }
+        "temperature": { "type": "float"  },
+        "humidity": { "type": "float" },
+        "timestamp": { "type": "int64" }
       }
     }
   }
