@@ -1,19 +1,14 @@
-MOAT js Seed Project
+MOAT js Testing Samples
 ========
 
-## Scripts
+これは、サーバープラグインのテストパターンをまとめるためのプロジェクトです。
 
-This package contains the following scripts:
+## スクリプト
 
-- `myapp.js`: Sample MOAT js script.
+- `scenario01.js`
 
-*.test.js files under `test` directories are unit testing scripts.
+## コマンド
 
-## Models
-
-Describe about the model defined in `package.json`.
-
-## Commands
 ### Set up
 
     npm install
@@ -30,8 +25,12 @@ Describe about the model defined in `package.json`.
 
     grunt clean
 
+### Test
+
+    grunt nodeunit
+
 ## Change History
 
-### 1.0.0 Jun 24, 2015
+### 0.0.1 Jun 29, 2015
 
 - Initial public release
