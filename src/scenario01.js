@@ -11,17 +11,13 @@ function isValidSensingData(sensingData) {
     return false;
   }
 
-  if (!sensingData.hasOwnProperty('temperature')) {
-    session.log(TAG, '"temperature" field does not exist in model object.');
-    return false;
-  }
-  if (!sensingData.hasOwnProperty('humidity')) {
-    session.log(TAG, '"humidity" field does not exist in model object.');
-    return false;
-  }
-  if (!sensingData.hasOwnProperty('timestamp')) {
-    session.log(TAG, '"timestamp" field does not exist in model object.');
-    return false;
+  // Check if the mandatory fields exist.
+  var fields = ['temperature', 'humidity', 'timestamp'];
+  for (var i = 0; i < fields.length; i++) {
+    if (!sensingData.hasOwnProperty(fields[i])) {
+      session.log(TAG, fields[i] + ' must exist in model object.');
+      return false;
+    }
   }
 
   return true;
