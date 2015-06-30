@@ -14,7 +14,7 @@ module.exports = nodeUnit.testCase({
     callback();
   },
 
-  'Invalid model object should throw an exception ("temperature" does not exist)' : function(assert) {
+  'An exception should be thrown if "temperature" does not exist' : function(assert) {
     var context = moat.init(sinon),
         session = context.session;
 
@@ -34,7 +34,7 @@ module.exports = nodeUnit.testCase({
     assert.done();
   },
 
-  'Invalid model object should throw an exception ("humidity" does not exist)' : function(assert) {
+  'An exception should be thrown if "humidity" does not exist' : function(assert) {
     var context = moat.init(sinon),
         session = context.session;
 
@@ -54,7 +54,7 @@ module.exports = nodeUnit.testCase({
     assert.done();
   },
 
-  'Invalid model object should throw an exception ("timestamp" does not exist)' : function(assert) {
+  'An exception should be thrown if "timestamp" does not exist' : function(assert) {
     var context = moat.init(sinon),
         session = context.session;
 
@@ -74,7 +74,7 @@ module.exports = nodeUnit.testCase({
     assert.done();
   },
 
-  'Invalid model object should throw an exception (model object must not be an array)' : function(assert) {
+  'An exception should be thrown if the model object is not an array' : function(assert) {
     var context = moat.init(sinon),
         session = context.session;
 
@@ -95,7 +95,7 @@ module.exports = nodeUnit.testCase({
     assert.done();
   },
 
-  'Should be successfully terminated on 200 OK.': function(assert) {
+  'Should be successfully terminated with 200 OK.': function(assert) {
     var context = moat.init(sinon),
         session = context.session;
 
@@ -124,7 +124,7 @@ module.exports = nodeUnit.testCase({
     assert.done();
   },
 
-  'Should be throw an exception on NOT 200 OK.': function(assert) {
+  'An exception should be thrown on receiving NOT 200 OK.': function(assert) {
     var context = moat.init(sinon),
         session = context.session;
 
