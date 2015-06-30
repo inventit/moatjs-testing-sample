@@ -31,6 +31,10 @@ MOAT js Testing Samples
 
 ## Change History
 
+### 0.0.2 Jun 30, 2015
+
+- Refactor
+
 ### 0.0.1 Jun 29, 2015
 
 - Initial public release
