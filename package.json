@@ -1,6 +1,6 @@
 {
   "name": "moatjs-testing-sample",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "MOAT js testing samples",
   "maintainers": [
     "thina <thina@yourinventit.com>"
@@ -22,7 +22,7 @@
     "grunt-contrib-uglify": "~0.6.0",
     "grunt-jsdoc": "~0.5.7",
     "grunt-mocha-chai-sinon": "~0.0.8",
-    "moat": "https://github.com/inventit/moatjs-stub.git#develop",
+    "moat": "~1.2.0",
     "nodeunit": "*",
     "sinon": ">= 1.5.2"
   },
