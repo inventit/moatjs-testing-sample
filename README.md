@@ -31,6 +31,14 @@ MOAT js Testing Samples
 
 ## Change History
 
+### 0.0.4 July 15, 2015
+
+- Fixed devDependency for moat module
+
+### 0.0.3 July 15, 2015
+
+- Fixed invalid repository url in package.json
+
 ### 0.0.2 Jun 30, 2015
 
 - Refactor
